@@ -27,8 +27,8 @@ namespace Autobarn.PricingClient {
                     Model = message.ModelName
                 };
                 var reply = await client.GetPriceAsync(priceRequest);
-                var priceMessage = new NewVehiclePriceMessage
-                {
+                var priceMessage = new NewVehiclePriceMessage {
+                    Registration = message.Registration,
                     CurrencyCode = reply.CurrencyCode,
                     Price = reply.Price,
                     Color = message.Color,
