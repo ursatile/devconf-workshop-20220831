@@ -11,7 +11,15 @@ namespace Autobarn.Messages {
 
         public override string ToString() {
             return $"{Registration},{ManufacturerName},{ModelName},{Year},{Color},{ListedAt:O}";
+        }
+    }
 
+    public class NewVehiclePriceMessage : NewVehicleMessage {
+        public int Price { get; set; }
+        public string CurrencyCode { get; set; }
+
+        public override string ToString() {
+            return $"{base.ToString()} ({Price}{CurrencyCode}";
         }
     }
 }
